@@ -41,10 +41,23 @@ public class Version1 {
 
         // 2. Insert the newly allocated PCB object into parentPid's
         //    list of children
+    	 Version1PCB parentPCB = findPCB(parentPid);
+    	    if (parentPCB == null) {
+    	        System.out.println("Parent process not found.");
+    	        return -1; // Return error code
+    	    }
 
+    	    
+    	    Version1PCB childPCB = new Version1PCB(childPid, parentPCB);//create child PCB
+
+    	   
+    	    parentPCB.addChild(childPCB); //insert child PCB into parent's list of children
+
+    	   
+    	    return 0; // good!
+    
         // You can decide what the return value(s), if any, should be.
         // If you change the return type/value(s), update the Javadoc.
-        return 0; // often means "success" or "terminated normally"
     }
 
     /**
