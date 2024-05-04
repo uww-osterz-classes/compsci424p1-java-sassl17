@@ -1,5 +1,5 @@
 /* COMPSCI 424 Program 1
- * Name:
+ * Name: Lucas Sass
  */
 package compsci424.p1.java;
 
@@ -15,7 +15,35 @@ package compsci424.p1.java;
  */
 public class Version1 {
     // Declare any class/instance variables that you need here.
+private static class Version1PCB {
+        private int pid;
+        private Version1PCB parent;
+        private List<Version1PCB> children;//children list
 
+        public Version1PCB(int pid, Version1PCB parent) {
+            this.pid = pid;
+            this.parent = parent;
+            this.children = new ArrayList<>();
+        }
+
+        public int getPid() {//to get pid
+            return pid;
+        }
+
+        public Version1PCB getParent() {//to get parent
+            return parent;
+        }
+
+        public List<Version1PCB> getChildren() {//to get children
+            return children;
+        }
+
+        public void addChild(Version1PCB child) {//to add child
+            children.add(child);
+        }
+    }
+
+    private Map<Integer, Version1PCB> pcbMap;//to map pids to pcbs
     /**
      * Default constructor. Use this to allocate (if needed) and
      * initialize the PCB array, create the PCB for process 0, and do
