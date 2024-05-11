@@ -99,8 +99,8 @@ public class Program1 {
      
         System.out.println("Builds without errors and runs to completion.");
   }
- }
-}//end main
+ /*** } 
+}//end main // incorrect end of class, commented out by instructor ***/
     private static boolean isValidCommand(String command) {
         String[] parts = command.split(" "); // splits the command with a space
         if (parts.length != 2) {
